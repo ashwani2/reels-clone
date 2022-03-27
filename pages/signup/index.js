@@ -71,7 +71,8 @@ function Index() {
               name:name,
               email:email,
               uid:user.user.uid,
-              photoURL:downloadURL
+              photoURL:downloadURL,
+              posts:[]
             }
 
             // to add documents in firestore and we can copy this function form firestore

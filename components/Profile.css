@@ -19,16 +19,14 @@
     flex-wrap: wrap;
 }
 
-.profile-videos>video{
-    width:10rem;
-    height:20rem;
-    padding:0.5rem;
+.profile-videos > video{
+    width: 10rem;
+    height: 20rem;
+    padding: 0.5rem;
 }
 
-@media only screen and (max-width:500px){
+@media only screen and (max-width: 500px) {
     .profile-upper{
         flex-direction: column;
-        margin-left: 5%;
-        margin-right:5%;
     }
 }

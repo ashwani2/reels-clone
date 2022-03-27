@@ -17,7 +17,7 @@ function AuthWrapper({ children }) {
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
-      console.log(user);
+      console.log("user is "+user);
       if (user) {
         setUser(user);
       } else {

@@ -18,7 +18,9 @@ import insta from "../assets/insta.png";
 import { AuthContext } from "../context/auth.js";
 import { useRouter } from "next/router";
 
-const ResponsiveAppBar = () => {
+const ResponsiveAppBar = ({userData}) => {
+  console.log(userData);
+  
   const { logout } = React.useContext(AuthContext);
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -44,6 +46,9 @@ const ResponsiveAppBar = () => {
     await logout();
     router.push("/login");
   };
+  const handleProfile=()=>{
+    router.push("/profile");
+  }
 
   return (
     <AppBar
@@ -71,7 +76,7 @@ const ResponsiveAppBar = () => {
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt="Remy Sharp"
-                  src="/static/images/avatar/2.jpg"
+                  src={userData?.photoURL}
                   sx={{ margin: "0.5rem" }}
                 />
               </IconButton>
@@ -92,7 +97,10 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleCloseUserMenu}>
+              <MenuItem onClick={() => {
+                  handleProfile();
+                  handleCloseUserMenu();
+                }}>
                 <Typography textAlign="center">Profile</Typography>
               </MenuItem>
               <MenuItem
